@@ -1,0 +1,6 @@
+{
+  "name": "ZUUID",
+  "description": "Fast, offline UUID v4 generator with multiple formats, Minecraft Bedrock manifest support, and dynamic dark colors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
