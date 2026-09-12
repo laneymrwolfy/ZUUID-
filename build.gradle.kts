@@ -1,4 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+val keystoreFile = file("debug.keystore")
+val base64Keystore = file("debug.keystore.base64")
+if (!keystoreFile.exists() && base64Keystore.exists()) {
+  try {
+    val decoded = java.util.Base64.getDecoder().decode(base64Keystore.readText().trim())
+    keystoreFile.writeBytes(decoded)
+  } catch (_: Exception) {}
+}
+
 plugins {
   alias(libs.plugins.android.application) apply false
   alias(libs.plugins.kotlin.compose) apply false
@@ -7,3 +16,4 @@ plugins {
   alias(libs.plugins.secrets) apply false
   // alias(libs.plugins.google.services) apply false
 }
+
